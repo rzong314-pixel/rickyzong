@@ -1,6 +1,5 @@
 name = "ricky-web"
 compatibility_date = "2025-03-24"
 
-[build]
-command = ""
-cwd = "./"
+[assets]
+directory = "."
