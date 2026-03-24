@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricky Zong | Physics Researcher & Competitive Programmer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .glass { 
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+        }
+        
+        .glass-dark { 
+            background: rgba(15, 23, 42, 0.7); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        
+        .gradient-text { 
+            background: linear-gradient(90deg, #2563eb, #9333ea, #ec4899); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+        }
+        
+        .gradient-text-warm {
+            background: linear-gradient(90deg, #f59e0b, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-bg-warm {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .gradient-bg-cool {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #2563eb, #9333ea, #ec4899);
+        }
+        
+        .timeline-item {
+            margin-left: 30px;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid #2563eb;
+            border-radius: 50%;
+        }
+        
+        .award-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin: 4px;
+        }
+        
+        .award-badge.gold {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #92400e;
+        }
+        
+        .award-badge.silver {
+            background: rgba(107, 114, 128, 0.1);
+            border-color: rgba(107, 114, 128, 0.3);
+            color: #374151;
+        }
+        
+        .award-badge.purple {
+            background: rgba(147, 51, 234, 0.1);
+            border-color: rgba(147, 51, 234, 0.3);
+            color: #6b21a8;
+        }
+        
+        .research-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #9333ea, #ec4899);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2563eb, #9333ea);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 selection:bg-blue-100">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-black gradient-text">RZ</div>
+            <div class="hidden md:flex gap-8">
+                <a href="#education" class="nav-link text-sm font-semibold text-slate-700">Education</a>
+                <a href="#research" class="nav-link text-sm font-semibold text-slate-700">Research</a>
+                <a href="#awards" class="nav-link text-sm font-semibold text-slate-700">Awards</a>
+                <a href="#activities" class="nav-link text-sm font-semibold text-slate-700">Activities</a>
+                <a href="#contact" class="nav-link text-sm font-semibold text-slate-700">Contact</a>
+            </div>
+            <a href="#contact" class="bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-bold hover:scale-105 transition">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200 rounded-full blur-3xl opacity-30"></div>
+        <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-pink-200 rounded-full blur-3xl opacity-20"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <div class="mb-6 inline-block">
+                <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Welcome to my portfolio</span>
+            </div>
+            <h1 class="text-7xl md:text-8xl font-black tracking-tighter mb-6 fade-in-up">
+                RICKY <span class="gradient-text">ZONG</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-light text-slate-600 max-w-3xl mx-auto mb-4 leading-relaxed">
+                Physics Enthusiast. Computational Researcher. Competitive Programmer.
+            </p>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto mb-12">
+                Exploring the frontiers of quantum mechanics, exoplanet detection, and high-performance robotics through rigorous research and engineering excellence.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-16">
+                <a href="#research" class="bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition text-lg">Explore Research</a>
+                <a href="#activities" class="border-2 border-slate-900 text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-50 transition text-lg">VEX Robotics</a>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 md:grid-cols-5 gap-4 mt-20">
+                <div class="glass p-4 rounded-2xl">
+                    <div class="stat-number">3</div>
+                    <p class="text-xs text-slate-600 font-semibold mt-2">Research Projects</p>
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <div class="stat-number">11+</div>
+                    <p class="text-xs text-slate-600 font-semibold mt-2">Major Awards</p>
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <div class="stat-number">1510</div>
+                    <p class="text-xs text-slate-600 font-semibold mt-2">SAT Score</p>
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <div class="stat-number">4.0</div>
+                    <p class="text-xs text-slate-600 font-semibold mt-2">GPA (G9)</p>
+                </div>
+                <div class="glass p-4 rounded-2xl">
+                    <div class="stat-number">111</div>
+                    <p class="text-xs text-slate-600 font-semibold mt-2">TOEFL</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 px-6 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Academic Foundation</span>
+                <h2 class="text-5xl md:text-6xl font-black mt-2 mb-4">Education</h2>
+                <div class="w-20 h-1 bg-gradient-bg rounded-full"></div>
+            </div>
+
+            <div class="glass card-hover p-12 rounded-3xl">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-2">BASIS International School</h3>
+                        <p class="text-lg text-slate-600">Park Lane Harbour, Guangdong, China</p>
+                        <p class="text-slate-500 mt-2">High School Diploma • Expected June 2027</p>
+                    </div>
+                    <div class="mt-6 md:mt-0 text-right">
+                        <div class="text-4xl font-black gradient-text">TOP 10%</div>
+                        <p class="text-slate-600 text-sm mt-1">School Ranking</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 mt-12">
+                    <div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-6 flex items-center">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                            Completed AP Courses
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-slate-200">
+                                <span class="font-semibold">AP World History</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">5</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-slate-200">
+                                <span class="font-semibold">AP European History</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">4</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-slate-200">
+                                <span class="font-semibold">AP Calculus AB</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">5</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-slate-200">
+                                <span class="font-semibold">AP Calculus BC</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">5</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-slate-200">
+                                <span class="font-semibold">AP Physics 1</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">5</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-slate-200">
+                                <span class="font-semibold">AP Physics C: Mechanics</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">5</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-slate-200">
+                                <span class="font-semibold">AP Physics C: E&M</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">5</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-slate-200">
+                                <span class="font-semibold">AP Statistics</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-6 flex items-center">
+                            <span class="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                            Current AP Courses
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                                <p class="font-semibold text-slate-900">AP Chemistry</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                                <p class="font-semibold text-slate-900">AP Computer Science A</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                                <p class="font-semibold text-slate-900">AP Macroeconomics</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                                <p class="font-semibold text-slate-900">AP Microeconomics</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                                <p class="font-semibold text-slate-900">AP English Language</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-200">
+                                <p class="font-semibold text-slate-900">AP U.S. History</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl border border-blue-200">
+                            <h5 class="font-bold text-slate-900 mb-4">Standardized Tests</h5>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-700">TOEFL Score</span>
+                                    <span class="font-bold text-blue-600">111 / 120</span>
+                                </div>
+                                <div class="border-t border-slate-300 pt-3 flex justify-between">
+                                    <span class="text-slate-700">SAT Score</span>
+                                    <span class="font-bold text-blue-600">1510 / 1600</span>
+                                </div>
+                                <div class="border-t border-slate-300 pt-3 flex justify-between">
+                                    <span class="text-slate-700">GPA (Grade 9)</span>
+                                    <span class="font-bold text-blue-600">4.0 / 4.0</span>
+                                </div>
+                                <div class="border-t border-slate-300 pt-3 flex justify-between">
+                                    <span class="text-slate-700">GPA (Grade 10)</span>
+                                    <span class="font-bold text-blue-600">3.95 / 4.0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Deep Dive</span>
+                <h2 class="text-5xl md:text-6xl font-black mt-2 mb-4">Research Projects</h2>
+                <div class="w-20 h-1 bg-gradient-bg rounded-full"></div>
+            </div>
+
+            <!-- Research 1: X-ray Diffraction -->
+            <div class="research-card glass card-hover p-10 rounded-3xl mb-10">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-2/3">
+                        <div class="inline-block mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-4 py-2 rounded-full">Summer 2024</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2">Investigation and Discovery of X-ray Diffraction</h3>
+                        <p class="text-lg text-slate-600 mb-2">Institute of Physics, Chinese Academy of Sciences Laboratory</p>
+                        <p class="text-slate-500 mb-6 leading-relaxed">
+                            A comprehensive exploration of electromagnetic theory and its practical applications in X-ray coherent scattering imaging, bridging theoretical physics with experimental nano-microscopy techniques.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                    Project Focus
+                                </h4>
+                                <p class="text-slate-700 ml-5">Explored the fundamental principles of electromagnetic theory and its application in X-ray coherent scattering imaging.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                    Key Contributions
+                                </h4>
+                                <ul class="ml-5 space-y-2 text-slate-700">
+                                    <li>• Analyzed the historical development of electromagnetic theory, from Ørsted's discovery to Maxwell's equations and Hertz's experimental validation.</li>
+                                    <li>• Investigated the wave nature of light, including concepts like Huygens-Fresnel principle and Kirchhoff's diffraction formula.</li>
+                                    <li>• Simulated coherent diffraction imaging using Gaussian sources, double slits, and Fresnel diffraction transmission.</li>
+                                    <li>• Gained hands-on experience with nano-microscopy, including understanding its internal structure and preparing/loading samples.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3">
+                        <div class="gradient-bg-cool rounded-2xl h-64 flex items-center justify-center text-white">
+                            <div class="text-center">
+                                <div class="text-5xl mb-2">🔬</div>
+                                <p class="font-bold">X-ray Imaging</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research 2: Exoplanet Detection -->
+            <div class="research-card glass card-hover p-10 rounded-3xl mb-10">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-2/3">
+                        <div class="inline-block mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-purple-600 bg-purple-50 px-4 py-2 rounded-full">Spring to Summer 2024</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2">Distinguishing Real Planets from Fake Ones</h3>
+                        <p class="text-lg text-slate-600 mb-2">Professor Dusan S. Danilovic</p>
+                        <p class="text-slate-500 mb-6 leading-relaxed">
+                            Advanced research in exoplanet detection techniques, integrating space-based missions with ground-based surveys to enhance detection accuracy and minimize false positives in crowded stellar fields.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                    <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                                    Project Focus
+                                </h4>
+                                <p class="text-slate-700 ml-5">Researched and applied advanced detection techniques to identify and analyze exoplanets, with a focus on distinguishing real exoplanets from false positives.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                    <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                                    Key Contributions
+                                </h4>
+                                <ul class="ml-5 space-y-2 text-slate-700">
+                                    <li>• Explored various exoplanet detection methods, including the transit method and radial velocity method, analyzing their strengths and weaknesses.</li>
+                                    <li>• Integrated data from space-based missions (TESS) with ground-based surveys (ATLAS and ZTF) to enhance detection accuracy and spatial resolution.</li>
+                                    <li>• Utilized aperture photometry and least-squares fit to a two-dimensional elliptical Gaussian profile for precise measurement of stellar brightness.</li>
+                                    <li>• Developed methodologies to minimize false positives, particularly in crowded stellar fields, by carefully analyzing photometric measurements.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3">
+                        <div class="gradient-bg-warm rounded-2xl h-64 flex items-center justify-center text-white">
+                            <div class="text-center">
+                                <div class="text-5xl mb-2">🪐</div>
+                                <p class="font-bold">Exoplanet Detection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research 3: Quarkonium -->
+            <div class="research-card glass card-hover p-10 rounded-3xl">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-2/3">
+                        <div class="inline-block mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-pink-600 bg-pink-50 px-4 py-2 rounded-full">Ongoing</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2">Exploring Quarkonium</h3>
+                        <p class="text-lg text-slate-600 mb-2">Professor Daniel Marlow</p>
+                        <p class="text-slate-500 mb-6 leading-relaxed">
+                            Investigating the theoretical and computational properties of quarkonium systems (bound states of heavy quark–antiquark pairs) within the framework of quantum mechanics and quantum chromodynamics (QCD).
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                    <span class="w-2 h-2 bg-pink-600 rounded-full mr-2"></span>
+                                    Project Focus
+                                </h4>
+                                <p class="text-slate-700 ml-5">Investigating the theoretical and computational properties of quarkonium systems within the framework of quantum mechanics and quantum chromodynamics.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                    <span class="w-2 h-2 bg-pink-600 rounded-full mr-2"></span>
+                                    Key Contributions
+                                </h4>
+                                <ul class="ml-5 space-y-2 text-slate-700">
+                                    <li>• Studying the Schrödinger equation with effective potentials (such as the Cornell potential) to model quark confinement and strong interaction behavior.</li>
+                                    <li>• Developing numerical simulations (shooting method and finite difference methods) to solve radial wavefunctions and energy eigenvalues for quarkonium states.</li>
+                                    <li>• Analyzing relativistic corrections and spin-dependent interactions to better approximate experimental spectra.</li>
+                                    <li>• Collaborating on computational optimization techniques to address numerical instability and overflow issues in high-energy physics simulations.</li>
+                                    <li>• Connecting theoretical results with experimental observations from particle physics to deepen understanding of strong force dynamics.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3">
+                        <div class="gradient-bg rounded-2xl h-64 flex items-center justify-center text-white">
+                            <div class="text-center">
+                                <div class="text-5xl mb-2">⚛️</div>
+                                <p class="font-bold">Quantum Mechanics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <span class="text-blue-400 font-bold uppercase tracking-widest text-sm">Recognition</span>
+                <h2 class="text-5xl md:text-6xl font-black mt-2 mb-4">Honors & Awards</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-400 to-pink-400 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Award 1 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">AMC 10</h3>
+                            <p class="text-slate-300 text-sm">November 2023</p>
+                        </div>
+                        <span class="text-3xl">🏆</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Scored 115.5 points</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge">Honor Roll</span>
+                        <span class="award-badge">Top 5%</span>
+                    </div>
+                </div>
+
+                <!-- Award 2 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">AMC 12</h3>
+                            <p class="text-slate-300 text-sm">November 2024</p>
+                        </div>
+                        <span class="text-3xl">🏆</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Scored 115.5 points</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge">Honor Roll</span>
+                        <span class="award-badge">Top 5%</span>
+                    </div>
+                </div>
+
+                <!-- Award 3 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">USACO</h3>
+                            <p class="text-slate-300 text-sm">February 2024</p>
+                        </div>
+                        <span class="text-3xl">💻</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Competitive Programming</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge silver">Silver Division</span>
+                    </div>
+                </div>
+
+                <!-- Award 4 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Physics Bowl</h3>
+                            <p class="text-slate-300 text-sm">May 2024</p>
+                        </div>
+                        <span class="text-3xl">🥈</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">National Competition</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge silver">National Silver</span>
+                        <span class="award-badge">Division 1</span>
+                    </div>
+                </div>
+
+                <!-- Award 5 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">BPhO – Global Silver</h3>
+                            <p class="text-slate-300 text-sm">November 2024</p>
+                        </div>
+                        <span class="text-3xl">🥈</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">British Physics Olympiad</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge silver">Global Silver</span>
+                    </div>
+                </div>
+
+                <!-- Award 6 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">BPhO – Gold Award</h3>
+                            <p class="text-slate-300 text-sm">November 2025</p>
+                        </div>
+                        <span class="text-3xl">🥇</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Online Senior Physics Challenge</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge gold">Gold Award</span>
+                    </div>
+                </div>
+
+                <!-- Award 7 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">BPhO Online Senior</h3>
+                            <p class="text-slate-300 text-sm">January 2025</p>
+                        </div>
+                        <span class="text-3xl">🥇</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Physics Challenge</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge gold">Gold Award</span>
+                    </div>
+                </div>
+
+                <!-- Award 8 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">PBIC</h3>
+                            <p class="text-slate-300 text-sm">August 2024</p>
+                        </div>
+                        <span class="text-3xl">👥</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Public Benefit International Challenge</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge">Team Leader</span>
+                        <span class="award-badge">Second Prize</span>
+                    </div>
+                </div>
+
+                <!-- Award 9 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Conrad Challenge</h3>
+                            <p class="text-slate-300 text-sm">Nov 2024 - Apr 2025</p>
+                        </div>
+                        <span class="text-3xl">🚀</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Innovation & Entrepreneurship</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge">China Finals</span>
+                        <span class="award-badge">Qualified</span>
+                    </div>
+                </div>
+
+                <!-- Award 10 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">HIR Academic Writing</h3>
+                            <p class="text-slate-300 text-sm">December 2024</p>
+                        </div>
+                        <span class="text-3xl">✍️</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Outstanding Writing Style</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge purple">Outstanding Style</span>
+                    </div>
+                </div>
+
+                <!-- Award 11 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">HIR Academic Writing</h3>
+                            <p class="text-slate-300 text-sm">December 2025</p>
+                        </div>
+                        <span class="text-3xl">✍️</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Outstanding Writing Content</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge purple">Outstanding Content</span>
+                    </div>
+                </div>
+
+                <!-- Award 12 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Stanford Math Tournament</h3>
+                            <p class="text-slate-300 text-sm">April 2025</p>
+                        </div>
+                        <span class="text-3xl">📐</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">2025 Competition</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge">Distinguished HM</span>
+                    </div>
+                </div>
+
+                <!-- Award 13 -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Physics Bowl</h3>
+                            <p class="text-slate-300 text-sm">2025</p>
+                        </div>
+                        <span class="text-3xl">🥈</span>
+                    </div>
+                    <p class="text-slate-200 mb-4">Division 2 Competition</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge silver">Silver</span>
+                        <span class="award-badge">Division 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extracurricular Activities Section -->
+    <section id="activities" class="py-24 px-6 bg-gradient-to-br from-slate-50 to-purple-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <span class="text-purple-600 font-bold uppercase tracking-widest text-sm">Beyond Academics</span>
+                <h2 class="text-5xl md:text-6xl font-black mt-2 mb-4">Extracurricular Activities</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Basketball -->
+                <div class="glass card-hover p-10 rounded-3xl">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center text-3xl mb-4">🏀</div>
+                        <h3 class="text-3xl font-bold mb-2">Basketball Varsity</h3>
+                        <p class="text-slate-600 text-lg">Since 2023</p>
+                    </div>
+                    <p class="text-slate-700 leading-relaxed mb-6">
+                        Active member of the school's varsity basketball team, demonstrating commitment to teamwork, physical fitness, and competitive excellence. Contributing to team strategy and performance while maintaining academic excellence.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge">Team Player</span>
+                        <span class="award-badge">Leadership</span>
+                        <span class="award-badge">Competitive</span>
+                    </div>
+                </div>
+
+                <!-- VEX Robotics -->
+                <div class="glass card-hover p-10 rounded-3xl">
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center text-3xl mb-4">🤖</div>
+                        <h3 class="text-3xl font-bold mb-2">VEX Robotics</h3>
+                        <p class="text-slate-600 text-lg">Started Grade 10, 2024</p>
+                    </div>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                        Leading the robotics team in engineering and programming. Specializing in PID control loops, drivetrain optimization, and competitive robot design. Applying computational skills to real-world mechanical systems and participating in competitive robotics tournaments.
+                    </p>
+                    <div class="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <p class="text-sm font-semibold text-blue-900 mb-2">Leadership Roles:</p>
+                        <div class="flex flex-col gap-2">
+                            <p class="text-slate-700 font-bold">首席工程师 (Chief Engineer)</p>
+                            <p class="text-slate-700 font-bold">第一操作手 (Primary Operator)</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge">Engineering</span>
+                        <span class="award-badge">Programming</span>
+                        <span class="award-badge">Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Experience Section -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <span class="text-green-600 font-bold uppercase tracking-widest text-sm">Community Impact</span>
+                <h2 class="text-5xl md:text-6xl font-black mt-2 mb-4">Volunteer Experience</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full"></div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Volunteer 1 -->
+                <div class="glass card-hover p-10 rounded-3xl border-l-4 border-green-500">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Thanksgiving Charity Drive</h3>
+                            <p class="text-slate-600">Volunteer for introducing charity for poor children</p>
+                        </div>
+                        <span class="text-4xl">🎁</span>
+                    </div>
+                    <p class="text-slate-700 leading-relaxed">
+                        Participated in organizing and distributing charitable gifts to underprivileged children during the Thanksgiving season, demonstrating compassion and commitment to community support.
+                    </p>
+                </div>
+
+                <!-- Volunteer 2 -->
+                <div class="glass card-hover p-10 rounded-3xl border-l-4 border-green-500">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">School Book Drive</h3>
+                            <p class="text-slate-600">Autumn 2023</p>
+                        </div>
+                        <span class="text-4xl">📚</span>
+                    </div>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                        Organized and coordinated a school-wide book collection initiative. All proceeds and collected books were donated to people in impoverished mountain areas, promoting literacy and education access.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="award-badge">Organizer</span>
+                        <span class="award-badge">Community Service</span>
+                    </div>
+                </div>
+
+                <!-- Volunteer 3 -->
+                <div class="glass card-hover p-10 rounded-3xl border-l-4 border-green-500">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">CDR's Corporate ESG & Sustainable Development</h3>
+                            <p class="text-slate-600">January 14, 2025 • Shanghai</p>
+                        </div>
+                        <span class="text-4xl">🌱</span>
+                    </div>
+                    <p class="text-slate-700 leading-relaxed">
+                        Participated in an extracurricular activity focused on corporate environmental, social, and governance initiatives, learning about sustainable development practices and their real-world applications.
+                    </p>
+                </div>
+
+                <!-- Volunteer 4 - Major Project -->
+                <div class="glass card-hover p-10 rounded-3xl border-l-4 border-green-600 bg-gradient-to-br from-green-50 to-emerald-50">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Shenzhen Offline Charity Sale Event</h3>
+                            <p class="text-slate-600 text-lg font-semibold">June 15, 2025</p>
+                        </div>
+                        <span class="text-4xl">❤️</span>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-2 flex items-center">
+                                <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                                Initiative
+                            </h4>
+                            <p class="text-slate-700 ml-5">Co-organized and led a charity sale event in Shenzhen with fellow students to support underprivileged communities.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-2 flex items-center">
+                                <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                                Beneficiaries
+                            </h4>
+                            <p class="text-slate-700 ml-5">Aimed to support elementary school students facing accommodation difficulties at <strong>Tacheng Central Primary School</strong> in Lisu, Yunnan Province.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                                Key Activities
+                            </h4>
+                            <ul class="ml-5 space-y-2 text-slate-700">
+                                <li>✓ Sold honey to raise funds, engaging with community members who wished to contribute to the cause.</li>
+                                <li>✓ Purchased essential living supplies, such as bed sheets and quilts, to improve the students' living and study conditions.</li>
+                                <li>✓ Visited the school to personally deliver the supplies and engage with the students.</li>
+                                <li>✓ Taught lessons on various subjects, including biology, physics, psychology, and philosophy, adapted to be understandable and engaging for elementary school students.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-2 flex items-center">
+                                <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                                Impact
+                            </h4>
+                            <p class="text-slate-700 ml-5">Directly improved the living conditions of underprivileged students and provided educational enrichment, fostering a supportive environment for their growth and learning.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volunteer 5 - Wildlife Protection Project -->
+                <div class="glass card-hover p-10 rounded-3xl border-l-4 border-green-600 bg-gradient-to-br from-emerald-50 to-teal-50">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Wildlife Protection and Ecological Development Pilot Project</h3>
+                            <p class="text-slate-600 text-lg font-semibold">Southeast Tibet • Chayu County</p>
+                        </div>
+                        <span class="text-4xl">🦁</span>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-2 flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                Project Overview
+                            </h4>
+                            <p class="text-slate-700 ml-5">A comprehensive ecological conservation initiative centered in Chayu County, Tibet, addressing the critical link between wildlife protection and sustainable human-nature coexistence. The project integrates scientific monitoring, policy frameworks, and community engagement to protect rare species while supporting local livelihoods.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-3 flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                Key Contributions & Insights
+                            </h4>
+                            <ul class="ml-5 space-y-3 text-slate-700">
+                                <li><strong>Scientific Monitoring:</strong> Analyzed infrared camera data confirming Chayu County as a vital biodiversity area, documenting stable populations of apex predators and rare ungulates including Clouded Leopard, Golden Cat, Dhole, and Black Musk Deer.</li>
+                                <li><strong>Policy Integration:</strong> Studied the implementation of governance frameworks such as the "River Chief, Lake Chief, and Forest Chief" systems and judicial measures like special protection orders for endangered species.</li>
+                                <li><strong>Human-Wildlife Conflict Resolution:</strong> Investigated the paradox of conservation success leading to increased human-wildlife conflict, particularly regarding bear and macaque damage to crops.</li>
+                                <li><strong>Technological Innovation:</strong> Explored AI-powered, real-time warning systems as bridges between ecological protection and community safety assurance.</li>
+                                <li><strong>Sustainable Development:</strong> Developed understanding of achieving "Ecological Beauty, Industrial Prosperity, and People's Wealth" through integrating species monitoring, conflict analysis, and policy recommendations.</li>
+                                <li><strong>Cultural Wisdom:</strong> Recognized the profound ecological value embedded in traditional beliefs and cultural practices, viewing them as time-tested rules for maintaining ecological balance.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-2 flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                Core Philosophy
+                            </h4>
+                            <p class="text-slate-700 ml-5">Effective ecological protection is not a singular scientific endeavor but a systemic undertaking requiring integration of scientific data, policy, economic considerations, and cultural wisdom. Continuity is achieved when conservation is internalized by the local community and becomes a sustainable way of life, ensuring the community becomes a proactive partner rather than a passive recipient in the conservation process.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-2 flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                Impact & Vision
+                            </h4>
+                            <p class="text-slate-700 ml-5">The Chayu pilot project demonstrates that protection is achieved by integrating science, technology, and policy to safeguard ecosystems, while wisdom of continuity is realized by weaving conservation into the fabric of community life. This holistic approach ensures that wildlife and the unique ecological system of Southeast Tibet will be truly protected and sustained for generations to come.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Languages Section -->
+    <section class="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <span class="text-blue-400 font-bold uppercase tracking-widest text-sm">Capabilities</span>
+                <h2 class="text-5xl md:text-6xl font-black mt-2 mb-4">Skills & Languages</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-400 to-pink-400 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Languages -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="text-3xl mr-3">🌍</span>
+                        Languages
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-semibold mb-2">Mandarin Chinese</p>
+                            <p class="text-slate-300 text-sm">Native Speaker</p>
+                        </div>
+                        <div class="border-t border-slate-700 pt-4">
+                            <p class="font-semibold mb-2">English</p>
+                            <p class="text-slate-300 text-sm">Fluent • TOEFL: 111/120</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="text-3xl mr-3">💻</span>
+                        Programming
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-semibold mb-2">Python</p>
+                            <p class="text-slate-300 text-sm">Currently Learning</p>
+                        </div>
+                        <div class="border-t border-slate-700 pt-4">
+                            <p class="font-semibold mb-2">Competitive Programming</p>
+                            <p class="text-slate-300 text-sm">USACO Silver Division</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hobbies -->
+                <div class="glass-dark card-hover p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <span class="text-3xl mr-3">🎮</span>
+                        Hobbies & Interests
+                    </h3>
+                    <div class="space-y-2 text-slate-300">
+                        <p>• Basketball</p>
+                        <p>• Piano</p>
+                        <p>• Video Games</p>
+                        <p>• Lego Building</p>
+                        <p>• Billiards</p>
+                        <p>• Robotics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Get in Touch</span>
+            <h2 class="text-5xl md:text-6xl font-black mt-2 mb-6">Let's Connect</h2>
+            <p class="text-xl text-slate-600 mb-12 leading-relaxed">
+                I'm always interested in discussing physics, research, robotics, and innovative ideas. Feel free to reach out!
+            </p>
+
+            <div class="glass card-hover p-10 rounded-3xl mb-12">
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-slate-600 mb-2">Email</p>
+                        <a href="mailto:15815587939@163.com" class="text-2xl font-bold text-blue-600 hover:text-blue-700">15815587939@163.com</a>
+                    </div>
+                    <div class="border-t border-slate-200 pt-6">
+                        <p class="text-slate-600 mb-2">Phone</p>
+                        <p class="text-2xl font-bold text-slate-900">+86 15815587939</p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-6">
+                        <p class="text-slate-600 mb-2">Location</p>
+                        <p class="text-lg font-semibold text-slate-900">Shenzhen, Guangdong, China</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-6">
+                <a href="mailto:15815587939@163.com" class="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:scale-105 transition">Send Email</a>
+                <a href="#" class="border-2 border-slate-900 text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-slate-50 transition">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-8 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-slate-400 mb-4">© 2025 Ricky Zong. All rights reserved.</p>
+            <p class="text-slate-500 text-sm">
+                Physics Enthusiast • Computational Researcher • Competitive Programmer
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
